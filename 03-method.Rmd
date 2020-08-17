@@ -54,3 +54,4 @@ stargazer(reg1, reg2, reg3,type="html")
 DT::datatable(iris)
 ```
 
+Added this line
