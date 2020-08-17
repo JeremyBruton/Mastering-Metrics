@@ -1,3 +1,56 @@
 # Methods
 
 We describe our methods in this chapter.
+
+## Example 1
+Load `ggplot2` and create a graph using the build in `cars` dataset
+
+```{r, message=FALSE}
+library(ggplot2)
+ggplot(aes(y=speed, x=dist), data=cars) + geom_point() + geom_smooth(method = "lm",se = FALSE)
+```
+
+## Example 2
+Here are graphs using the `mpg` package
+
+### First MPG graph
+
+```{r, message=FALSE}
+ggplot(data = mpg, aes(x = displ, y = hwy, colour = class)) + geom_point()
+```
+
+### Second MPG graph
+
+```{r, message=FALSE}
+ggplot(data = mpg, aes(x = cyl, y = hwy, colour = class)) + geom_point()
+```
+
+
+
+
+## Now try Stargazer
+
+```{r}
+suppressMessages(library(stargazer))
+x <- sample(1:5,100,TRUE)
+z <- sample(5:10,100,TRUE)
+y <- sample(1:10,100,TRUE)
+df <- data.frame(x,y,z)
+reg1 <- lm(y ~ x ,data=df)
+reg2 <- lm(y ~ z,data=df)
+reg3 <- lm(y ~ x + z,data=df)
+```
+
+
+```{r, results='asis'}
+stargazer(reg1, reg2, reg3,type="html")
+```
+
+
+
+## Now try interactive content
+
+```{r}
+DT::datatable(iris)
+```
+
